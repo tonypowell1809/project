@@ -1,0 +1,11 @@
+server {
+    listen         3200 default_server;
+    listen         [::]:3200 default_server;
+    server_name    example.com www.example.com;
+    root           /var/www/example.com;
+    index          index.html;
+    try_files $uri /index.html;
+    location / { 
+       proxy_pass http://localhost:3400/;
+    }
+}

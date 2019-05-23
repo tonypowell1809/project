@@ -1,0 +1,12 @@
+version: '2'
+services:
+  minion:
+    ports:
+      - 3200
+    image: salt-minion1:latest
+    links: 
+      - master
+    depends_on:
+      - master
+  master:
+    image: salt-master1:latest
